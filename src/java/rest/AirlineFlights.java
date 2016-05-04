@@ -1,5 +1,9 @@
 package rest;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import entity.Flight;
+import facades.AirlineFacade;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.annotation.security.RolesAllowed;
@@ -13,14 +17,22 @@ import javax.ws.rs.core.MediaType;
 //@RolesAllowed("Admin")
 public class AirlineFlights {
   
+    Gson gson;
+     AirlineFacade af;
+    
+     public AirlineFlights() {
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        af = new AirlineFacade();
+    }
   
   @GET
   @Path("/{from}/{date}/{tickets}")
   @Produces(MediaType.APPLICATION_JSON)
   public String getFlightsFrom(@PathParam("from") String from, 
-          @PathParam("date") String date, @PathParam("tickets") String tickets){
-      
-      
+          @PathParam("date") String date, @PathParam("tickets") int tickets){
+      System.out.println("now printing something");
+       System.out.println(gson.toJson(af.getFlightsFrom(from, date, tickets), Flight.class));
+       
       return "hej";
   }
   
@@ -28,10 +40,10 @@ public class AirlineFlights {
   @Path("/{from}/{to}/{date}/{tickets}")
   @Produces(MediaType.APPLICATION_JSON)
   public String getFlightsFromTo(@PathParam("from") String from, @PathParam("to") String to,
-          @PathParam("date") String date, @PathParam("tickets") String tickets){
+          @PathParam("date") String date, @PathParam("tickets") int tickets){
       
-      
-      return "hej";
+       
+      return gson.toJson(af.getFlightsFromTo(from, to, date, tickets), Flight.class);
   }
   
   
