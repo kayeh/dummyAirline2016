@@ -2,6 +2,9 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import entity.Flight;
 import facades.AirlineFacade;
 import java.text.SimpleDateFormat;
@@ -31,8 +34,11 @@ public class AirlineFlights {
   @Produces(MediaType.APPLICATION_JSON)
   public String getFlightsFrom(@PathParam("from") String from, 
           @PathParam("date") String date, @PathParam("tickets") int tickets){
-       
-      return gson.toJson(af.getFlightsFrom(from, date, tickets));
+       JsonObject jb = new JsonObject();
+       jb.addProperty("airline", "Flight-Hunter Airlines");
+       jb.add("flights", gson.toJsonTree(af.getFlightsFrom(from, date, tickets)));
+            
+      return gson.toJson(jb);
   }
   
   @GET

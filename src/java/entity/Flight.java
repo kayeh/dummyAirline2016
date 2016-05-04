@@ -20,24 +20,24 @@ import javax.persistence.Id;
 public class Flight implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private String flightId;
+    private String flightID;
     private String flightNumber;
     private String date;
     private int numberOfSeats;
     private float totalPrice;
-    private int travelTime;
+    private int traveltime;
     private String origin;
     private String destination;
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.flightId);
+        hash = 53 * hash + Objects.hashCode(this.flightID);
         hash = 53 * hash + Objects.hashCode(this.flightNumber);
         hash = 53 * hash + Objects.hashCode(this.date);
         hash = 53 * hash + this.numberOfSeats;
         hash = 53 * hash + Float.floatToIntBits(this.totalPrice);
-        hash = 53 * hash + this.travelTime;
+        hash = 53 * hash + this.traveltime;
         hash = 53 * hash + Objects.hashCode(this.origin);
         hash = 53 * hash + Objects.hashCode(this.destination);
         return hash;
@@ -52,7 +52,7 @@ public class Flight implements Serializable {
             return false;
         }
         final Flight other = (Flight) obj;
-        if (!Objects.equals(this.flightId, other.flightId)) {
+        if (!Objects.equals(this.flightID, other.flightID)) {
             return false;
         }
         if (!Objects.equals(this.flightNumber, other.flightNumber)) {
@@ -67,7 +67,7 @@ public class Flight implements Serializable {
         if (Float.floatToIntBits(this.totalPrice) != Float.floatToIntBits(other.totalPrice)) {
             return false;
         }
-        if (this.travelTime != other.travelTime) {
+        if (this.traveltime != other.traveltime) {
             return false;
         }
         if (!Objects.equals(this.origin, other.origin)) {
@@ -81,7 +81,7 @@ public class Flight implements Serializable {
 
     @Override
     public String toString() {
-        return "NewEntity{" + "flightId=" + flightId + ", flightNumber=" + flightNumber + ", date=" + date + ", numberOfSeats=" + numberOfSeats + ", totalPrice=" + totalPrice + ", travelTime=" + travelTime + ", origin=" + origin + ", destination=" + destination + '}';
+        return "NewEntity{" + "flightId=" + flightID + ", flightNumber=" + flightNumber + ", date=" + date + ", numberOfSeats=" + numberOfSeats + ", totalPrice=" + totalPrice + ", travelTime=" + traveltime + ", origin=" + origin + ", destination=" + destination + '}';
     }
     
     public String getFlightNumber() {
@@ -116,12 +116,12 @@ public class Flight implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public int getTravelTime() {
-        return travelTime;
+    public int getTraveltime() {
+        return traveltime;
     }
 
-    public void setTravelTime(int travelTime) {
-        this.travelTime = travelTime;
+    public void setTraveltime(int traveltime) {
+        this.traveltime = traveltime;
     }
 
     public String getOrigin() {
@@ -140,12 +140,12 @@ public class Flight implements Serializable {
         this.destination = destination;
     }
 
-    public String getFlightId() {
-        return flightId;
+    public String getFlightID() {
+        return flightID;
     }
 
-    public void setFlightId(String flightId) {
-        this.flightId = flightId;
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
     }
     
 }

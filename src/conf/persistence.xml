@@ -13,6 +13,8 @@
       <property name="javax.persistence.jdbc.password" value="password"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="eclipselink.canonicalmodel.subpackage" value="development"/>
+      <property name="javax.persistence.sql-load-script-source" value="scripts/addData.sql"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
     </properties>
   </persistence-unit>
   <persistence-unit name="PU_OPENSHIFT" transaction-type="RESOURCE_LOCAL">
@@ -25,6 +27,7 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="eclipselink.canonicalmodel.subpackage" value="deploy"/>
+      <property name="javax.persistence.sql-load-script-source" value="scripts/addData.sql"/>
     </properties>
   </persistence-unit>
 </persistence>
