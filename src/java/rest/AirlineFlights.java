@@ -6,6 +6,7 @@ import entity.Flight;
 import facades.AirlineFacade;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -30,10 +31,8 @@ public class AirlineFlights {
   @Produces(MediaType.APPLICATION_JSON)
   public String getFlightsFrom(@PathParam("from") String from, 
           @PathParam("date") String date, @PathParam("tickets") int tickets){
-      System.out.println("now printing something");
-       System.out.println(gson.toJson(af.getFlightsFrom(from, date, tickets), Flight.class));
        
-      return "hej";
+      return gson.toJson(af.getFlightsFrom(from, date, tickets));
   }
   
   @GET
@@ -43,7 +42,7 @@ public class AirlineFlights {
           @PathParam("date") String date, @PathParam("tickets") int tickets){
       
        
-      return gson.toJson(af.getFlightsFromTo(from, to, date, tickets), Flight.class);
+      return gson.toJson(af.getFlightsFromTo(from, to, date, tickets));
   }
   
   
