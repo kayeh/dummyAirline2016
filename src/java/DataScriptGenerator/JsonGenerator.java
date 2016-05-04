@@ -34,7 +34,7 @@ public class JsonGenerator {
     static int[] availableSeats = {200, 150, 300, 100};
 
     public static void generator(int amount) {
-        System.out.println("INSERT INTO test.fhairline (`flightID`, `flightNumber`, `date`, `numberOfSeats`, `totalPrice`, traveltime, origin, destination)");
+        System.out.println("INSERT INTO airlinetest.flight (`flightID`, `flightNumber`, `date`, `numberOfSeats`, `totalPrice`, traveltime, origin, destination)");
         System.out.print("VALUES ");
         for (int i = 1; i < amount; i++) {
             tempID = flightID();
