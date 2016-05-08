@@ -60,6 +60,7 @@ public class AirlineFacade {
         } finally {
             em.close();
         }
+        System.out.println("your request returned this data: " + result);
         return result;
 
     }
